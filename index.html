@@ -66,8 +66,8 @@
         <br>
         <br>
         <div style="text-align: center;">
-          <h2>Low Frame-rate Speech Codec: a Codec Designed for Fast High-quality Speech LLM Training and Inference</h3>
-            <p> <b>Edresson Casanova, Ryan Langman, Paarth Neekhara, Shehzeen Hussain, Jason Li, Subhankar Ghosh, Ante Jukić, Sang-gil Lee</b></p>
+          <h2>NanoCodec: Towards High Quality Ultra Fast Speech LLM Inference</h3>
+            <p> <b></b></p>
         
 
         </div>
@@ -77,7 +77,7 @@
 
       <p>
            
-        Large language models (LLMs) have significantly advanced audio processing through audio codecs that convert audio into discrete tokens, enabling the application of language modeling techniques to audio data. However, audio codecs often operate at high frame rates, resulting in slow training and inference, especially for autoregressive models. To address this challenge, we present the Low Frame-rate Speech Codec (LFSC): a neural audio codec that leverages finite scalar quantization and adversarial training with large speech language models to achieve high-quality audio compression with a 1.89 kbps bitrate and 21.5 frames per second. We demonstrate that our novel codec can make the inference of LLM-based text-to-speech models around three times faster while improving intelligibility and producing quality comparable to previous models.      
+        Large Language Models (LLMs) have significantly advanced audio processing by leveraging audio codecs to discretize audio into tokens, enabling the application of language modeling techniques to speech data. However, existing audio codecs often operate at high frame rates, leading to slow training and inference, particularly for autoregressive models. To address this, there is growing interest in low frame-rate audio codecs, which reduce the number of autoregressive steps required to generate one second of audio. In this paper, we conduct ablation studies to examine the impact of frame rate, bitrate, and causality on codec reconstruction quality. Based on our findings, we introduce NanoCodec, a state-of-the-art (SOTA) audio codec that achieves high-quality compression at just 12.5 frames per second (FPS). NanoCodec outperforms related works across various bitrate ranges, establishing a new benchmark for low-latency and efficient Speech LLM training and inference.
 
       </p>
 
@@ -93,10 +93,7 @@
 
 
 
-      <h2>Codec Reconstruction</h2>
-
-      <p> Note that for the audio demo all audios was resampled to 22.05kHz to fair comparison.  </p>      
-
+      <h2>Codec Reconstruction</h2> 
 
 
       <h3>MLS test set</h3>
@@ -1325,9 +1322,7 @@
       <br />​<hr />​​​​​​​​​​​​​​​​​​​<br />
 
       
-      <h2>ZS-TTS Audio Samples</h2>
-
-      <p> Note that for the audio demo all audios was resampled to 22.05kHz to fair comparison.  </p>      
+      <h2>ZS-TTS Audio Samples</h2>   
 
 
   <table border="1" class="dataframe">
@@ -1552,21 +1547,14 @@
 
 <h3>Citation</h3>
       <pre class="highlight">
-
-        @article{casanova2024low,
-          title={Low Frame-rate Speech Codec: a Codec Designed for Fast High-quality Speech LLM Training and Inference},
-          author={Casanova, Edresson and Langman, Ryan and Neekhara, Paarth and Hussain, Shehzeen and Li, Jason and Ghosh, Subhankar and Juki{\'c}, Ante and Lee, Sang-gil},
-          journal={arXiv preprint arXiv:2409.12117},
-          year={2024}
-        }
         
       </pre>
 
      
       <footer class="site-footer">
         <center>
-        <a href="https://www.nvidia.com/" title="NVIDIA Corporation" target="_blank"> <img src="img/nvidia-logo.png" border="0" height="60" align="middle"> </a>
-        <!--<a href="http://www.defined.ai/" title="Defined.ai" target="_blank"> <img src="img/df.jpeg" border="0" height="50"> </a>
+        <!--<a href="https://www.nvidia.com/" title="NVIDIA Corporation" target="_blank"> <img src="img/nvidia-logo.png" border="0" height="60" align="middle"> </a>
+        <a href="http://www.defined.ai/" title="Defined.ai" target="_blank"> <img src="img/df.jpeg" border="0" height="50"> </a>
         <a href="http://www.deeplearningbrasil.com.br/" title="Deep Learning Brasil" target="_blank"> <img src="img/dlb.png" border="0" height="50"> </a>
         <a href="http://icmc.usp.br/" title="Institute of Mathematics and Computer Science (ICMC)" target="_blank"> <img src="img/icmc.png" border="0" height="55"> </a>
         <a href="https://www.soprabanking.com/" title="Sopra Banking Software" target="_blank"> <img src="img/sbs.png" border="0" height="38"> </a>
