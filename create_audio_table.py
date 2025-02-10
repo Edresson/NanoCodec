@@ -31,6 +31,14 @@ def set_seed(random_seed=1234):
 set_seed()
 
 
+
+# samples_path = "/home/ecasanova/Projects/Papers/ICASSP-2025-21Hz-codec/NeMo-Speech-Codec/audios_demo/T5-TTS_22kHz/"
+samples_path = "/home/ecasanova/Projects/Papers/INTERSPEECH-Codec/NanoCodec/audios_demo/codecs_reconstruction/"
+
+extension = ".flac"
+
+
+
 def create_html_table(dic):
 
 
@@ -46,7 +54,7 @@ def create_html_table(dic):
 
     # added audio 
     html = html.replace("<td>audios_demo/", '<td><audio controls style="width: 110px;" src="audios_demo/')
-    html = html.replace(".wav</td>", '.wav"></audio></td>')
+    html = html.replace(extension+"</td>", extension+'"></audio></td>')
     for key in model_map:
         html = html.replace(model_map[key], key)
 
@@ -74,22 +82,28 @@ lang_map = {
         "du": "Dutch",
 }
 
-samples_path = "/home/ecasanova/Projects/Papers/ICASSP-2025-21Hz-codec/NeMo-Speech-Codec/audios_demo/T5-TTS_22kHz/"
 
 from glob import glob
 
 
-all_samples = glob(samples_path + '**/*.wav', recursive=True)
+all_samples = glob(samples_path + '**/*'+extension, recursive=True)
 all_samples.sort()
 model_map = {
     "GT": "0 Ground truth",
     "Reference": "1 Reference",
-    "Encodec 6kbps": "2 Encodec 6kbps",
-    "DAC 7.75kbps": "3 DAC 7.75kbps",
-    "Spectral Codec": "4 Spectral Codec",
-    "Ours 2k codes": "5 Ours 2k codes",
-    "Ours 4k codes": "6 Ours 4k codes",
+    "1.89kbps Low Frame rate Speech Codec": "2 1.89kbps Low Frame rate Speech Codec",
+    "1.78kbps Ours": "3 1.78kbps Ours 12.5 FPS",
+    "1.1kbps Mimi": "4 1.1kbps Mimi",
+    "1.1kbps Ours": "5 1.1kbps Ours 12.5 FPS",
+    "1.1kbps Ours 25 FPS": "6 1.1kbps Ours 25 FPS",
+    "1.1kbps Ours 6.25 FPS": "7 1.1kbps Ours 6.25 FPS",
+    "0.9kbps WavTokenizer": "8 0.9kbps WavTokenizer",
+    "0.85kbps TS3 Codec": "9 0.85kbps TS3-Codec",
+    "0.8kbps Ours": "A 0.8kbps Ours",
+    "0.7kbps TAAE": "B 0.7kbps TAAE",
+    "0.6kbps Ours": "C 0.6kbps Ours",
 }
+
 
 language_samples = {}
 count_daps = set()
@@ -102,9 +116,9 @@ for sample in all_samples:
         lang = os.path.dirname(sample).split("/")[-1]
         lang = lang_map[lang]
     
-    audio_path = sample.split("NeMo-Speech-Codec/")[-1]
+    audio_path = sample.split("NanoCodec/")[-1]
 
-    model_name = os.path.basename(audio_path).split("_")[-1].replace(".wav", "").replace("-", " ").replace("SpectralCodec", "Spectral Codec")
+    model_name = os.path.basename(audio_path).split("_")[-1].replace(".wav", "").replace(".flac", "").replace("-", " ").replace("SpectralCodec", "Spectral Codec")
     speaker_name = os.path.basename(audio_path).split("_")[0]
 
     if "/daps/" in sample:
