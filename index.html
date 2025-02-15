@@ -4,7 +4,7 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8">
-    <title>Low Frame-rate Speech Codec</title>
+    <title>NanoCodec</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -1329,8 +1329,69 @@
 
 
     <h2>Low Frame-rate Speech Codec (LFSC) Streaming Experiments</h2>   
-    We simulated streaming inference and evaluated the LFSC model with varying numbers of lookahead frames/tokens. Perceptual quality was assessed using PESQ, revealing that LFSC requires a minimum of five lookahead frames to match the performance of offline inference. In contrast, our models achieve equivalent PESQ scores without any lookahead. Below, we present audio samples illustrating the impact of lookahead tokens on the perceptual quality of the LFSC model.
-  <h3>DAPS test set</h3>
+    We simulated streaming inference and evaluated the LFSC model with varying numbers of lookahead frames/tokens. The output perceptual quality was assessed using PESQ, with the results presented in the table below. Our findings indicate that LFSC requires a minimum of five lookahead frames to achieve performance comparable to offline inference. However, even with seven lookahead frames, the model still does not fully match the quality of offline inference. In contrast, our models achieve equivalent PESQ scores without any lookahead. Additionally, we provide audio samples below to illustrate the impact of lookahead tokens on the perceptual quality of the LFSC model.
+    
+    <style type="text/css">
+      .tg  {border-collapse:collapse;border-spacing:0;}
+      .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        overflow:hidden;padding:10px 5px;word-break:normal;}
+      .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+      .tg .tg-fymr{border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
+      .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+      </style>
+      <table class="tg"><thead>
+        <tr>
+          <th class="tg-fymr">Model - Condition</th>
+          <th class="tg-fymr">PESQ</th>
+        </tr></thead>
+      <tbody>
+        <tr>
+          <td class="tg-0pky">1.78kbps Ours 12.5 FPS - Offline</td>
+          <td class="tg-0pky">2.955</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">1.78kbps Ours 12.5 FPS - Streaming no lookahed</td>
+          <td class="tg-0pky">2.955</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">1.89kbps Ours 21.5 FPS - Offline</td>
+          <td class="tg-0pky">3.087</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">1.89kbps Ours 21.5 FPS - Streaming no lookahed</td>
+          <td class="tg-0pky">3.087</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">1.89kbps LFSC 21.5 FPS - Offline</td>
+          <td class="tg-0pky">3.075</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">1.89kbps LFSC 21.5 FPS - Streaming 3 frames lookahed</td>
+          <td class="tg-0pky">2.912</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">1.89kbps LFSC 21.5 FPS - Streaming 4 frames lookahed</td>
+          <td class="tg-0pky">3.064</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">1.89kbps LFSC 21.5 FPS - Streaming 5 frames lookahed</td>
+          <td class="tg-0pky">3.071</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">1.89kbps LFSC 21.5 FPS - Streaming 6 frames lookahed</td>
+          <td class="tg-0pky">3.072</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">1.89kbps LFSC 21.5 FPS - Streaming 7 frames lookahed</td>
+          <td class="tg-0pky">3.074</td>
+        </tr>
+      </tbody></table>
+    
+  
+    <h3>DAPS test set</h3>
+
+
 
   <table border="1" class="dataframe">
     <thead>
@@ -1379,7 +1440,7 @@
       </tr>
 
       <tr>
-        <th>1.78kbps Ours 12.5 FPS - Streaming no lookahed </th>
+        <th>1.78kbps Ours 12.5 FPS - Streaming no lookahead </th>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/1.78kbps_causal_decoder_0_lookahead_tokens/f10_script3_cleanraw_00000012_GT.wav_stream.wav"></audio></td>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/1.78kbps_causal_decoder_0_lookahead_tokens/f10_script3_cleanraw_00000020_GT.wav_stream.wav"></audio></td>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/1.78kbps_causal_decoder_0_lookahead_tokens/m10_script1_cleanraw_00000005_GT.wav_stream.wav"></audio></td>
@@ -1398,7 +1459,7 @@
       </tr>
 
       <tr>
-        <th>1.89kbps Ours 21.5 FPS - Streaming no lookahed </th>
+        <th>   </th>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/1.89kbps_21_fpscausal_decoder_0_lookahead_tokens/f10_script3_cleanraw_00000012_GT.wav_stream.wav"></audio></td>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/1.89kbps_21_fpscausal_decoder_0_lookahead_tokens/f10_script3_cleanraw_00000020_GT.wav_stream.wav"></audio></td>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/1.89kbps_21_fpscausal_decoder_0_lookahead_tokens/m10_script1_cleanraw_00000005_GT.wav_stream.wav"></audio></td>
@@ -1418,7 +1479,7 @@
       </tr>
 
       <tr>
-        <th>1.89kbps LFSC 21.5 FPS - Streaming 3 frames lookahed </th>
+        <th>1.89kbps LFSC 21.5 FPS - Streaming 3 frames lookahead </th>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/Low-frame-rate-speech-codec_3_lookahead_tokens/f10_script3_cleanraw_00000012_GT.wav_stream.wav"></audio></td>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/Low-frame-rate-speech-codec_3_lookahead_tokens/f10_script3_cleanraw_00000020_GT.wav_stream.wav"></audio></td>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/Low-frame-rate-speech-codec_3_lookahead_tokens/m10_script1_cleanraw_00000005_GT.wav_stream.wav"></audio></td>
@@ -1427,7 +1488,7 @@
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/Low-frame-rate-speech-codec_3_lookahead_tokens/m10_script5_cleanraw_00000009_GT.wav_stream.wav"></audio></td>
       </tr>
       <tr>
-        <th>1.89kbps LFSC 21.5 FPS - Streaming 4 frames lookahed </th>
+        <th>1.89kbps LFSC 21.5 FPS - Streaming 4 frames lookahead </th>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/Low-frame-rate-speech-codec_4_lookahead_tokens/f10_script3_cleanraw_00000012_GT.wav_stream.wav"></audio></td>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/Low-frame-rate-speech-codec_4_lookahead_tokens/f10_script3_cleanraw_00000020_GT.wav_stream.wav"></audio></td>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/Low-frame-rate-speech-codec_4_lookahead_tokens/m10_script1_cleanraw_00000005_GT.wav_stream.wav"></audio></td>
@@ -1436,7 +1497,7 @@
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/Low-frame-rate-speech-codec_4_lookahead_tokens/m10_script5_cleanraw_00000009_GT.wav_stream.wav"></audio></td>
       </tr>
       <tr>
-        <th>1.89kbps LFSC 21.5 FPS - Streaming 5 frames lookahed </th>
+        <th>1.89kbps LFSC 21.5 FPS - Streaming 5 frames lookahead </th>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/Low-frame-rate-speech-codec_5_lookahead_tokens/f10_script3_cleanraw_00000012_GT.wav_stream.wav"></audio></td>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/Low-frame-rate-speech-codec_5_lookahead_tokens/f10_script3_cleanraw_00000020_GT.wav_stream.wav"></audio></td>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/Low-frame-rate-speech-codec_5_lookahead_tokens/m10_script1_cleanraw_00000005_GT.wav_stream.wav"></audio></td>
@@ -1445,7 +1506,7 @@
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/Low-frame-rate-speech-codec_5_lookahead_tokens/m10_script5_cleanraw_00000009_GT.wav_stream.wav"></audio></td>
       </tr>
       <tr>
-        <th>1.89kbps LFSC 21.5 FPS - Streaming 6 frames lookahed </th>
+        <th>1.89kbps LFSC 21.5 FPS - Streaming 6 frames lookahead </th>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/Low-frame-rate-speech-codec_6_lookahead_tokens/f10_script3_cleanraw_00000012_GT.wav_stream.wav"></audio></td>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/Low-frame-rate-speech-codec_6_lookahead_tokens/f10_script3_cleanraw_00000020_GT.wav_stream.wav"></audio></td>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/Low-frame-rate-speech-codec_6_lookahead_tokens/m10_script1_cleanraw_00000005_GT.wav_stream.wav"></audio></td>
@@ -1454,7 +1515,7 @@
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/Low-frame-rate-speech-codec_6_lookahead_tokens/m10_script5_cleanraw_00000009_GT.wav_stream.wav"></audio></td>
       </tr>
       <tr>
-        <th>1.89kbps LFSC 21.5 FPS - Streaming 7 frames lookahed </th>
+        <th>1.89kbps LFSC 21.5 FPS - Streaming 7 frames lookahead </th>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/Low-frame-rate-speech-codec_7_lookahead_tokens/f10_script3_cleanraw_00000012_GT.wav_stream.wav"></audio></td>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/Low-frame-rate-speech-codec_7_lookahead_tokens/f10_script3_cleanraw_00000020_GT.wav_stream.wav"></audio></td>
         <td><audio controls style="width: 110px;" src="audios_demo/codecs_reconstruction/cached_frames_infer/Low-frame-rate-speech-codec_7_lookahead_tokens/m10_script1_cleanraw_00000005_GT.wav_stream.wav"></audio></td>
