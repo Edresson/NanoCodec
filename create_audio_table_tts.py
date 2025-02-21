@@ -86,13 +86,13 @@ random.shuffle(all_samples)
 
 
 model_map = {
-    "GT": " 0 Ground truth",
-    "Reference": " 1 Reference",
-    "ICML_CFG_DC_koel_onlyphoneme_epoch161_Temp0.6_Topk80_Cfg_True_2.5_svmodel_wavlm_libri_unseen_edresson_phoneme": "1 LFSC 12.5 FPS 1.89 kbps",
-    "21fps_causal_epoch203_Temp0.6_Topk80_Cfg_True_2.5_svmodel_wavlm_libri_unseen_edresson_phoneme": "2 NanoCodec 21.5 FPS 1.89 kbps",
-    "12.5codec_epoch248_Temp0.6_Topk80_Cfg_True_2.5_svmodel_wavlm_libri_unseen_edresson_phoneme": "3 NanoCodec 12.5 FPS 1.78 kbps",
-    "12.5codec_epoch154_1.1kbps_8_codebooks_Temp0.6_Topk80_Cfg_True_2.5_svmodel_wavlm_libri_unseen_edresson_phoneme": "4 NanoCodec 12.5 FPS 1.1 kbps",
-    "koel_12.5_FPS_causal_13codebooks_context10s_epoch_129_Temp0.6_Topk80_Cfg_True_2.5_svmodel_wavlm_libri_unseen_edresson_phoneme": "5 NanoCodec 12.5 FPS 1.78 kbps 10s context"
+    "GT": "0 Ground truth",
+    "Reference": "1 Reference",
+    "ICML_CFG_DC_koel_onlyphoneme_epoch161_Temp0.6_Topk80_Cfg_True_2.5_svmodel_wavlm_libri_unseen_edresson_phoneme": "2 LFSC 12.5 FPS 1.89 kbps",
+    "21fps_causal_epoch203_Temp0.6_Topk80_Cfg_True_2.5_svmodel_wavlm_libri_unseen_edresson_phoneme": "3 NanoCodec 21.5 FPS 1.89 kbps",
+    "12.5codec_epoch248_Temp0.6_Topk80_Cfg_True_2.5_svmodel_wavlm_libri_unseen_edresson_phoneme": "4 NanoCodec 12.5 FPS 1.78 kbps",
+    "12.5codec_epoch154_1.1kbps_8_codebooks_Temp0.6_Topk80_Cfg_True_2.5_svmodel_wavlm_libri_unseen_edresson_phoneme": "5 NanoCodec 12.5 FPS 1.1 kbps",
+    "koel_12.5_FPS_causal_13codebooks_context10s_epoch_129_Temp0.6_Topk80_Cfg_True_2.5_svmodel_wavlm_libri_unseen_edresson_phoneme": "6 NanoCodec 12.5 FPS 1.78 kbps 10s context"
 }
 
 
