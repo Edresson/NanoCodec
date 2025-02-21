@@ -64,6 +64,8 @@ def return_existing_files(files, Exps_maps):
 
 output_dir = "/home/ecasanova/Projects/Evaluations/MMS_ASR_interspeech_paper_eval_16khz/Comparision_demo/mls/"
 
+# output_dir = "/home/ecasanova/Projects/Papers/INTERSPEECH-Codec/NanoCodec/audios_demo/ZS-TTS/"
+
 num_files_per_language = 6
 
 ext = ".flac"
