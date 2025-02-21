@@ -63,7 +63,7 @@ def create_html_table(dic):
     # remove begging name order id
     for key in model_map:
         exp_name = model_map[key]
-        html = html.replace(exp_name, exp_name.replace(exp_name.split(" ")[0], ""))
+        html = html.replace(exp_name, exp_name[2:])
 
     html  = html.replace("@", "")
 
@@ -86,8 +86,8 @@ random.shuffle(all_samples)
 
 
 model_map = {
-    "GT": "0 Ground truth",
-    "Reference": "1 Reference",
+    "GT": " 0 Ground truth",
+    "Reference": " 1 Reference",
     "ICML_CFG_DC_koel_onlyphoneme_epoch161_Temp0.6_Topk80_Cfg_True_2.5_svmodel_wavlm_libri_unseen_edresson_phoneme": "1 LFSC 12.5 FPS 1.89 kbps",
     "21fps_causal_epoch203_Temp0.6_Topk80_Cfg_True_2.5_svmodel_wavlm_libri_unseen_edresson_phoneme": "2 NanoCodec 21.5 FPS 1.89 kbps",
     "12.5codec_epoch248_Temp0.6_Topk80_Cfg_True_2.5_svmodel_wavlm_libri_unseen_edresson_phoneme": "3 NanoCodec 12.5 FPS 1.78 kbps",
